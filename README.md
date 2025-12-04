@@ -2,8 +2,26 @@
 Turn any video into a clean, smooth GIF with a single bash command.
 
 ## Prerequisites
-- `ffmpeg` and `ffprobe` available in `PATH`. Install via your package manager (e.g., `brew install ffmpeg` on macOS).
+- `ffmpeg` and `ffprobe` available in `PATH`.
 - Bash shell (script tested with `bash`).
+
+## Install FFmpeg and FFprobe
+Check first:
+```bash
+ffmpeg -version && ffprobe -version
+```
+If both commands work, you are set. Otherwise:
+
+- **macOS**: `brew install ffmpeg` (Homebrew). Without Homebrew, download a macOS build from evermeet.cx or gyan.dev and place `ffmpeg`/`ffprobe` somewhere on your `PATH` (e.g., `/usr/local/bin` or `/opt/homebrew/bin`).
+- **Windows**: Download the "release full" zip from gyan.dev (FFmpeg builds), unzip to `C:\\ffmpeg`, and add `C:\\ffmpeg\\bin` to your `PATH`. Open a new terminal afterward.
+- **Linux**:
+  - Debian/Ubuntu: `sudo apt-get update && sudo apt-get install ffmpeg`
+  - Fedora/RHEL/CentOS: `sudo dnf install ffmpeg` (or `sudo yum install ffmpeg` on older releases)
+  - Arch: `sudo pacman -S ffmpeg`
+
+After installing, re-run `ffmpeg -version` and `ffprobe -version` to confirm.
+
+Optional: run `scripts/check_ffmpeg.sh` to see whether both tools are available and get OS-specific guidance.
 
 ## Usage
 ```bash
